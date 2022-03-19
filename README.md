@@ -44,6 +44,7 @@ $ 14ed2fcc device (exemplo)
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [React](https://pt-br.reactjs.org/)
+- [React Native](https://reactnative.dev/)
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Node.js](https://nodejs.org/en/)
 - [React Icons](https://react-icons.github.io/react-icons/)
