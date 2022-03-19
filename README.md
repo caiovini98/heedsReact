@@ -49,4 +49,3 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [HTML e CSS](https://www.w3schools.com/)
 - [TypeScript](https://www.typescriptlang.org/)
-- 
