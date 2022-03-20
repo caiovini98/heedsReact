@@ -4,19 +4,8 @@ import {MarkerType} from '../../models/Marker';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {
-  PermissionsAndroid,
-  Alert,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  TouchableOpacity,
-  View,
-  TextInput,
-} from 'react-native';
+import {Container, Input, SearchContainer, Title, ViewMap} from './styles';
+import {PermissionsAndroid, Alert, StyleSheet} from 'react-native';
 import {MarkertsContext} from '../../contexts/auth';
 
 const VisualizarMapas: () => Node = () => {
@@ -24,7 +13,6 @@ const VisualizarMapas: () => Node = () => {
   const [searchShop, setSearchShop] = useState<string>('');
   const [currentLatitude, setCurrentLatitude] = useState<number>(0);
   const [currentLongitude, setCurrentLongitude] = useState<number>(0);
-  // -12.9794001 -38.4786104
 
   useEffect(() => {
     callLocation();
@@ -98,28 +86,18 @@ const VisualizarMapas: () => Node = () => {
     });
 
   return (
-    <SafeAreaView>
-      <Text style={{color: '#000'}}>
-        Verifique aqui suas lojas cadastradas.
-      </Text>
-      <View
-        style={{
-          marginLeft: 8,
-          marginRight: 8,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}>
-        <TextInput
-          style={styles.itemInput}
+    <Container>
+      <Title>Verifique aqui suas lojas cadastradas.</Title>
+      <SearchContainer>
+        <Input
           placeholder="Busque aqui uma loja pelo nome"
           placeholderTextColor="#bdc3c7"
           value={searchShop}
           onChangeText={(text: string) => setSearchShop(text)}
         />
-        <Icon name="store-search" size={35} color="#000" />
-      </View>
-      <View style={styles.viewMap}>
+        <Icon name="store-search" size={35} color="#06d6a0" />
+      </SearchContainer>
+      <ViewMap>
         <MapView
           provider={PROVIDER_GOOGLE}
           style={styles.mapStyle}
@@ -133,50 +111,15 @@ const VisualizarMapas: () => Node = () => {
           }}>
           {renderMarkers()}
         </MapView>
-      </View>
-    </SafeAreaView>
+      </ViewMap>
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  viewMap: {
-    width: '100%',
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    overflow: 'hidden',
-    marginTop: 5,
-  },
   mapStyle: {
     width: '100%',
     height: '100%',
-  },
-  itemInput: {
-    // position: 'absolute',
-    // zIndex: 999,
-    backgroundColor: '#fff',
-    // marginTop: 10,
-    // marginLeft: 20,
-    // marginRight: 20,
-    color: '#000',
-    borderRadius: 10,
-    padding: 2,
-    width: 315,
   },
 });
 

@@ -17,8 +17,16 @@ function Routes() {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="CadastrarMapas" component={CadastrarMapas} />
-      <Stack.Screen name="VisualizarMapas" component={VisualizarMapas} />
+      <Stack.Screen
+        name="CadastrarMapas"
+        component={CadastrarMapas}
+        options={{title: 'Cadastrar lojas'}}
+      />
+      <Stack.Screen
+        name="VisualizarMapas"
+        component={VisualizarMapas}
+        options={{title: 'Visualizar lojas'}}
+      />
     </Stack.Navigator>
   );
 }
