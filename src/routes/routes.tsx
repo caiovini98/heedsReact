@@ -1,9 +1,9 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 
-import Home from '../Home';
-import CadastrarMapas from '../CadastrarMapas';
-import VisualizarMapas from '../VisualizarMapas';
+import Home from '../components/Home';
+import CadastrarMapas from '../components/CadastrarMapas';
+import VisualizarMapas from '../components/VisualizarMapas';
 
 const Stack = createNativeStackNavigator();
 

@@ -1,22 +1,18 @@
 import React, {createContext, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {MarkerType} from '../models/Marker';
 
 export const MarkertsContext = createContext({});
 
 export default function MarkertProvider({children}) {
-  const [markerts, setMarkerts] = useState<Array<any>>([]);
+  const [markers, setMarkers] = useState<MarkerType[]>([]);
 
-  function addMarkerts(longitude: any, latitude: any) {
-    const markertsObject: any = {
-      latitude: latitude,
-      longitude: longitude,
-    };
-
-    setMarkerts((arrayMarkert: any) => [...arrayMarkert, markertsObject]);
+  function addMarkerts(objMarker: MarkerType) {
+    setMarkers((arrayMarker: MarkerType[]) => [...arrayMarker, objMarker]);
   }
 
   return (
-    <MarkertsContext.Provider value={{markerts, addMarkerts}}>
+    <MarkertsContext.Provider value={{markers, addMarkerts}}>
       {children}
     </MarkertsContext.Provider>
   );
